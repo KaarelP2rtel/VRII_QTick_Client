@@ -22,44 +22,33 @@ namespace QTickWPF.Views
     {
         //Variables to use
         private MainWindowVM _vm;
-        private Frame _userFrame;
-        private Frame _overFrame;
+
 
         //Constructor for LoggedIn
-        public LoggedIn(MainWindowVM mainVM, Frame userFrame, Frame overFrame)
+        public LoggedIn(MainWindowVM vm)
         {
             InitializeComponent();
 
-            _vm = mainVM;
-            _userFrame = userFrame;
-            _overFrame = overFrame;
-            // TODO user has to be here
-            //userName.Text = _vm.User.Username;
+            _vm = vm;
+
         }
 
         //Logs the user out, closing event and displaying LoginForm
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
         {
-           // _vm.User = null;
-
-            _overFrame.Content = null;
-            _overFrame.Visibility = Visibility.Hidden;
-
-            
+        
         }
 
         //Opens the settings page 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
-            _overFrame.Content = new Settings(_vm, _overFrame);
-            _overFrame.Visibility = Visibility.Visible;
+
         }
 
         //Opens the new event page 
         private void NewEventBtn_Click(object sender, RoutedEventArgs e)
         {
-            //_overFrame.Content = new EventEdit(_vm, _overFrame);
-            _overFrame.Visibility = Visibility.Visible;
+
         }
     }
 }

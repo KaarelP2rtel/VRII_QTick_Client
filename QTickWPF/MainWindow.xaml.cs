@@ -29,11 +29,9 @@ namespace QTickWPF
         public MainWindow()
         {
             InitializeComponent();
-            this._vm = new MainWindowVM();
-            this.DataContext = _vm;
-
-            userFrame.Content = _vm.UserFrameContent;
-           
+            _vm = new MainWindowVM();
+            DataContext = _vm;
+          
           
         }
     }

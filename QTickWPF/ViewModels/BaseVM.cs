@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace QTickWPF.ViewModels
 {
-    public class BaseVM : INotifyPropertyChanged //see tähendab, et saaks teavitada VIEWsid andmete muutmisest
-    { // ütleb Viewle et uuenda
-        // omavad ja kontrollivad neid andmeid, mida View saab kasutada
+    public class BaseVM : INotifyPropertyChanged 
+    { 
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void NotifyPropertyChanged(string propertyName = "")

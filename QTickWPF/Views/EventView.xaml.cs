@@ -17,9 +17,9 @@ namespace QTickWPF.Views
     /// <summary>
     /// Interaction logic for Event.xaml
     /// </summary>
-    public partial class Event : Page
+    public partial class EventView : Page
     {
-        public Event()
+        public EventView()
         {
             InitializeComponent();
         }
