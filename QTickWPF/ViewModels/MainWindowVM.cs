@@ -9,8 +9,8 @@ using QTickWPF.Services;
 
 namespace QTickWPF.ViewModels
 {
-        class MainWindowVM : INotifyPropertyChanged
-    {
+        public class MainWindowVM : INotifyPropertyChanged
+        {
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName = "")
         {

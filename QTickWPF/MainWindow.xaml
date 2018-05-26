@@ -35,7 +35,7 @@
         <Grid Grid.Row="1" Margin="5,5,5,5">
         </Grid>
         <ListBox ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="200" Margin="93,206,0,0" VerticalAlignment="Top" Width="498"/>
-
+        <Frame x:Name="overFrame" Grid.Column="1" Margin="5" Visibility="Hidden" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
 
 
     </Grid>
