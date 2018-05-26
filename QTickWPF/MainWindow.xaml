@@ -34,7 +34,10 @@
         </Grid>
         <Grid Grid.Row="1" Margin="5,5,5,5">
         </Grid>
-        <ListBox ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="200" Margin="93,206,0,0" VerticalAlignment="Top" Width="498"/>
+        <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="200" Margin="100,200,0,0" VerticalAlignment="Top" Width="498"/>
+                
         <Frame x:Name="overFrame" Grid.Column="1" Margin="5" Visibility="Hidden" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
 
 

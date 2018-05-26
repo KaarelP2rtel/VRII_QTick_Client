@@ -20,9 +20,12 @@ namespace QTickWPF.ViewModels
             }
         }
 
-        private readonly EventsService _eventsService;
-
+        //private readonly EventsService _eventsService;
+        private readonly LoginService _loginService;
+        
+        
         private List<Event> _events;
+        private string _token;
 
         public List<Event> Events
         {
@@ -36,19 +39,34 @@ namespace QTickWPF.ViewModels
                 NotifyPropertyChanged("Events");
             }
         }
+        public string Token
+        {
+            get
+            {
+                return _token;
+            }
+            set
+            {
+                _token = value;
+                NotifyPropertyChanged("Token");
+            }
+        }
 
         public MainWindowVM()
         {
             _events = new List<Event>();
 
-            _eventsService = new EventsService();
+            //_eventsService = new EventsService();
+            _loginService = new LoginService();
+
         }
+    
 
         // vaate Data laadimine
         public async void LoadData()
         {
-            Events = await _eventsService.GetEventsAsync();
-
+            //Events = await _eventsService.GetEventsAsync();
+            
             _events.Add(new Event() { EventName = "Kontsert 1" });
         }
 

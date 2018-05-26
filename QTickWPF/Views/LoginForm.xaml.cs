@@ -1,4 +1,5 @@
-﻿using QTickWPF.ViewModels;
+﻿using QTickWPF.Services;
+using QTickWPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace QTickWPF.Views
         private Frame _userFrame;
         private Frame _overFrame;
 
+        private LoginService _loginService;
+
         //Constructor for LoginForm
         public LoginForm(MainWindowVM mainVM, Frame userFrame, Frame overFrame)
         {
@@ -32,6 +35,7 @@ namespace QTickWPF.Views
             _vm = mainVM;
             _userFrame = userFrame;
             _overFrame = overFrame;
+            _loginService = new LoginService();
         }
 
         //When register button is pressed, it tries to register user
@@ -54,10 +58,12 @@ namespace QTickWPF.Views
         }
 
         //When login button is pressed, it tries to login user
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private async void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            //var username = LoginUser.Text;
-            //var password = LoginPassword.Password;
+            var username = LoginUser.Text;
+            var password = LoginPassword.Password;
+            string token = await _loginService.GetToken(username, password);
+            _vm.Token = token;
 
             try
             {

@@ -38,6 +38,6 @@ namespace QTickWPF
         //    {
         //        User.Visibility = Visibility.Visible;
         //    }
-        //}
+        }
     }
 }
