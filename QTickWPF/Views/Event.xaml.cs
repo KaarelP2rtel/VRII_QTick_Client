@@ -17,11 +17,26 @@ namespace QTickWPF.Views
     /// <summary>
     /// Interaction logic for Event.xaml
     /// </summary>
-    public partial class Event : Window
+    public partial class Event : Page
     {
         public Event()
         {
             InitializeComponent();
+        }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void editBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void delBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
