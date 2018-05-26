@@ -9,8 +9,8 @@ using QTickWPF.Services;
 
 namespace QTickWPF.ViewModels
 {
-        public class MainWindowVM : INotifyPropertyChanged
-        {
+    public class MainWindowVM : INotifyPropertyChanged
+    {
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName = "")
         {
@@ -22,10 +22,12 @@ namespace QTickWPF.ViewModels
 
         //private readonly EventsService _eventsService;
         private readonly LoginService _loginService;
-        
-        
+
+
         private List<Event> _events;
         private string _token;
+
+        private string _loginUserInput;
 
         public List<Event> Events
         {
@@ -33,8 +35,8 @@ namespace QTickWPF.ViewModels
             {
                 return _events;
             }
-            private set 
-            {   
+            private set
+            {
                 _events = value;
                 NotifyPropertyChanged("Events");
             }
@@ -45,10 +47,20 @@ namespace QTickWPF.ViewModels
             {
                 return _token;
             }
-            set
+            private set
             {
                 _token = value;
                 NotifyPropertyChanged("Token");
+            }
+        }
+
+        public string LoginUserInput
+        {
+            get => _loginUserInput;
+            private set
+            {
+                _loginUserInput = value;
+                NotifyPropertyChanged("LoginUserInput");
             }
         }
 
@@ -60,13 +72,13 @@ namespace QTickWPF.ViewModels
             _loginService = new LoginService();
 
         }
-    
+
 
         // vaate Data laadimine
         public async void LoadData()
         {
             //Events = await _eventsService.GetEventsAsync();
-            
+
             _events.Add(new Event() { EventName = "Kontsert 1" });
         }
 

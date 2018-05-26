@@ -23,7 +23,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Username" />
-                <TextBox Grid.Column="1" Grid.Row="0" x:Name="LoginUser" Margin="5,2" KeyUp="checkLoginEnter_KeyUp" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp" />
                 <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2" Text="Password"/>
                 <PasswordBox Grid.Column="1" Grid.Row="1" x:Name="LoginPassword" Margin="5,2" KeyUp="checkLoginEnter_KeyUp"/>
                 <Button Grid.Column="0" Grid.Row="2" x:Name="LoginBtn" Content="Login" Margin="5,2" Click="LoginBtn_Click" Grid.ColumnSpan="2"/>

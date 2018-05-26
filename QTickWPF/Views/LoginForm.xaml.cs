@@ -62,6 +62,8 @@ namespace QTickWPF.Views
         {
             var username = LoginUser.Text;
             var password = LoginPassword.Password;
+
+
             string token = await _loginService.GetToken(username, password);
             _vm.Token = token;
 
