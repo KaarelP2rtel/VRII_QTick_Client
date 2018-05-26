@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QTickWPF.Services
 {
-    public class BaseService<TRequest,TResponse> where TRequest : class where TResponse : class
+    public class BaseService
     {
         private HttpClient _client;
 
@@ -32,7 +32,7 @@ namespace QTickWPF.Services
             return await resp.Content.ReadAsAsync<TResponse>();
         }
 
-        protected async Task<TResponse> PostAsync<TRequest>(string url, TRequest obj)
+        protected async Task<TResponse> PostAsync<TRequest, TResponse>(string url, TRequest obj)
         {
             
             var response = await _client.PostAsJsonAsync(
@@ -42,7 +42,7 @@ namespace QTickWPF.Services
             return await response.Content.ReadAsAsync<TResponse>();
         }
 
-        protected async Task<TResponse> PostAsync<TRequest>(string url, TRequest obj, string token)
+        protected async Task<TResponse> PostAsync<TRequest,TResponse>(string url, TRequest obj, string token)
         {
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await _client.PostAsJsonAsync(

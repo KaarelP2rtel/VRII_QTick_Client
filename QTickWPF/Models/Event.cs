@@ -14,8 +14,7 @@ namespace QTickWPF.Models
         public string EventDescription { get; set; }
         public string EventDuration { get; set; }
         public string EventPage { get; set; }
-
-        //public string EventTypeId { get; set; }
+        public EventType EventType { get; set; }
 
 
     }
