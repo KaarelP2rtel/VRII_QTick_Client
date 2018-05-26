@@ -22,55 +22,27 @@ namespace QTickWPF.Views
     public partial class LoginForm : Page
     {
         //Variables to use
-        private MainWindowVM _vm;
-        private Frame _userFrame;
-        private Frame _overFrame;
 
-        private LoginService _loginService;
 
+        MainWindowVM _vm;
         //Constructor for LoginForm
-        public LoginForm(MainWindowVM mainVM, Frame userFrame, Frame overFrame)
+        public LoginForm(MainWindowVM vm)
         {
             InitializeComponent();
-            _vm = mainVM;
-            _userFrame = userFrame;
-            _overFrame = overFrame;
-            _loginService = new LoginService();
+            _vm = vm;
+   
         }
 
         //When register button is pressed, it tries to register user
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
-            //var username = RegisterUser.Text;
-            //var password = RegisterPassword.Password;
-
-            try
-            {
-               // _vm.User = UserService.Register(username, password);
-
-                _userFrame.Content = new LoggedIn(_vm, _userFrame, _overFrame);
-
-            }
-            catch (InvalidOperationException er)
-            {
-                RegisterError.Text = er.Message;
-            }
+   
         }
 
         //When login button is pressed, it tries to login user
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             _vm.TryLogin(); 
-
-            try
-            {
-              //  _vm.User = UserService.LogIn(username, password);
-                _userFrame.Content = new LoggedIn(_vm, _userFrame, _overFrame);
-            }
-            catch (InvalidOperationException er)
-            {
-                LoginError.Text = er.Message;
-            }
         }
 
         //Triggers login button when pressed enter in login fields

@@ -45,7 +45,7 @@ namespace QTickWPF.Views
             _overFrame.Content = null;
             _overFrame.Visibility = Visibility.Hidden;
 
-            _userFrame.Content = new LoginForm(_vm, _userFrame, _overFrame);
+            
         }
 
         //Opens the settings page 

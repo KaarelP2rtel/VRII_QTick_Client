@@ -64,16 +64,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\EventType.cs" />
-    <Compile Include="Models\Login\LoginDTO.cs" />
-    <Compile Include="Models\Login\TokenDTO.cs" />
-    <Compile Include="Models\Performance.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Performances\Event.cs" />
+    <Compile Include="Models\Performances\Location.cs" />
+    <Compile Include="Models\Types\LocationType.cs" />
+    <Compile Include="Models\Types\PerformerType.cs" />
+    <Compile Include="Models\Types\EventType.cs" />
+    <Compile Include="Models\DTO\LoginDTO.cs" />
+    <Compile Include="Models\DTO\TokenDTO.cs" />
+    <Compile Include="Models\Performances\Performance.cs" />
+    <Compile Include="Models\Login\ApplicationUser.cs" />
+    <Compile Include="Models\Performances\Performer.cs" />
+    <Compile Include="Models\Types\TicketType.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\EventsService.cs" />
-    <Compile Include="Services\PerformerService.cs" />
-    <Compile Include="Services\TypeService.cs" />
+    <Compile Include="Services\LocationsService.cs" />
+    <Compile Include="Services\PerformersService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />

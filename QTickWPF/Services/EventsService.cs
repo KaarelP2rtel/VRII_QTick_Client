@@ -12,11 +12,11 @@ namespace QTickWPF.Services
     {
         public async Task<List<Event>> GetEventsAsync()
         {
-            return await GetAsync<List<Event>>("Events");
+            return await GetAsync<List<Event>>("Performances/Events");
         }
-        public async Task<Event> GetEventById(int id)
+        public async Task<Event> GetEventByIdAsync(int id)
         {
-            return await GetAsync<Event>($"Events/{id}");
+            return await GetAsync<Event>($"Performances/Events/{id}");
         }
     }
 }

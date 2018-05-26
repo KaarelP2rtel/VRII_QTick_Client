@@ -32,12 +32,9 @@ namespace QTickWPF
             this._vm = new MainWindowVM();
             this.DataContext = _vm;
 
-            userFrame.Content = new LoginForm(_vm, userFrame, overFrame);
-
-        //    if (_vm.User != null)
-        //    {
-        //        User.Visibility = Visibility.Visible;
-        //    }
+            userFrame.Content = _vm.UserFrameContent;
+           
+          
         }
     }
 }

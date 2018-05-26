@@ -26,8 +26,8 @@
                   
             </Grid>
             <Grid Grid.Column="1">
-                
-            <Frame Grid.Column="1" x:Name="userFrame" NavigationUIVisibility="Hidden" Margin="0,5,0,0" Height="130" Grid.ColumnSpan="2"/>
+
+                <Frame Grid.Column="1" x:Name="userFrame" Content="{Binding UserFrameContent}" NavigationUIVisibility="Hidden" Margin="0,5,0,0" Height="130" Grid.ColumnSpan="2"/>
 
             </Grid>         
            
@@ -38,7 +38,7 @@
 
         <ListBox Grid.Row="1" ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="200" Margin="100,200,0,0" VerticalAlignment="Top" Width="498"/>
                 
-        <Frame x:Name="overFrame" Grid.Column="1" Margin="5" Visibility="Hidden" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
+        <Frame x:Name="overFrame"  Grid.Column="1" Margin="5" Visibility="Hidden" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
 
 
     </Grid>

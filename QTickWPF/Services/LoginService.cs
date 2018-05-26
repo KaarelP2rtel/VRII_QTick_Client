@@ -9,7 +9,7 @@ namespace QTickWPF.Services
 {
     public class LoginService : BaseService
     {
-        public async Task<string> GetToken(string user, string pass)
+        public async Task<string> GetTokenAsync(string user, string pass)
         {
             var login = new LoginDTO { Email = user, Password = pass };
             return (await PostAsync<LoginDTO,TokenDTO>("Security/GetToken",login)).Token;

@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using QTickWPF.Models;
 using QTickWPF.Services;
+using QTickWPF.Views;
 
 namespace QTickWPF.ViewModels
 {
@@ -24,13 +26,13 @@ namespace QTickWPF.ViewModels
         private readonly LoginService _loginService;
 
 
-        private List<Event> _events;
+        private List<Models.Event> _events;
         private string _token;
 
         private string _loginUserInput;
         private string _loginPasswordInput;
-
-        public List<Event> Events
+        private Page _userFrameContent;
+        public List<Models.Event> Events
         {
             get
             {
@@ -75,10 +77,22 @@ namespace QTickWPF.ViewModels
             }
         }
 
+        public Page UserFrameContent
+        {
+            get => _userFrameContent;
+            private set
+            {
+                _userFrameContent = value;
+                NotifyPropertyChanged("UserFrameContent");
+            }
+        }
+
         public MainWindowVM()
         {
-            _events = new List<Event>();
-
+            _events = new List<Models.Event>();
+            
+            UserFrameContent = new LoginForm(this);
+            
             //_eventsService = new EventsService();
             _loginService = new LoginService();
 
@@ -86,7 +100,8 @@ namespace QTickWPF.ViewModels
 
         public async void TryLogin()
         {
-            Token = await _loginService.GetToken(LoginUserInput, LoginPasswordInput);           
+            Token = await _loginService.GetTokenAsync(LoginUserInput, LoginPasswordInput);   
+            UserFrameContent = new LoggedIn(this,null,null);
         }
 
         // vaate Data laadimine
@@ -94,7 +109,7 @@ namespace QTickWPF.ViewModels
         {
             //Events = await _eventsService.GetEventsAsync();
 
-            _events.Add(new Event() { EventName = "Kontsert 1" });
+            _events.Add(new Models.Event() { EventName = "Kontsert 1" });
         }
 
     }
