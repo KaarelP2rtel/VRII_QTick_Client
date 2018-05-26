@@ -28,6 +28,7 @@ namespace QTickWPF.ViewModels
         private string _token;
 
         private string _loginUserInput;
+        private string _loginPasswordInput;
 
         public List<Event> Events
         {
@@ -64,6 +65,16 @@ namespace QTickWPF.ViewModels
             }
         }
 
+        public string LoginPasswordInput
+        {
+            get => _loginPasswordInput;
+            private set
+            {
+                _loginPasswordInput = value;
+                NotifyPropertyChanged("LoginPasswordInput");
+            }
+        }
+
         public MainWindowVM()
         {
             _events = new List<Event>();
@@ -73,6 +84,10 @@ namespace QTickWPF.ViewModels
 
         }
 
+        public async void TryLogin()
+        {
+            Token = await _loginService.GetToken(LoginUserInput, LoginPasswordInput);           
+        }
 
         // vaate Data laadimine
         public async void LoadData()

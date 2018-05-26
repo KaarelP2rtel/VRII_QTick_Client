@@ -25,11 +25,9 @@
                 <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Username" />
                     <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp" />
                 <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2" Text="Password"/>
-                <PasswordBox Grid.Column="1" Grid.Row="1" x:Name="LoginPassword" Margin="5,2" KeyUp="checkLoginEnter_KeyUp"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp"/>
                 <Button Grid.Column="0" Grid.Row="2" x:Name="LoginBtn" Content="Login" Margin="5,2" Click="LoginBtn_Click" Grid.ColumnSpan="2"/>
-                    <TextBlock Grid.Column="0" Grid.Row="3" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
-
-                    <TextBlock Grid.Column="0" Grid.Row="3" x:Name="LoginError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" x:Name="LoginError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="2"/>
             </Grid>
         </TabItem>
         <TabItem Header="Register">

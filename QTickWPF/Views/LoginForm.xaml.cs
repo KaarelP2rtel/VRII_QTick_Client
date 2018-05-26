@@ -58,14 +58,9 @@ namespace QTickWPF.Views
         }
 
         //When login button is pressed, it tries to login user
-        private async void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            var username = LoginUser.Text;
-            var password = LoginPassword.Password;
-
-
-            string token = await _loginService.GetToken(username, password);
-            _vm.Token = token;
+            _vm.TryLogin(); 
 
             try
             {
