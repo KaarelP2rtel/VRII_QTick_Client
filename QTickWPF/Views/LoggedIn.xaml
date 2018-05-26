@@ -18,9 +18,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="logoutBtn" Content="Log Out" Margin="5" Click="logoutBtn_Click" Grid.Row="0" Grid.Column="1"/>
+        <Button x:Name="LogoutBtn" Content="Log Out" Margin="5" Click="LogoutBtn_Click" Grid.Row="0" Grid.Column="1"/>
         <TextBlock x:Name="userName" Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="newRecipeBtn" Content="New Event" Margin="5" Click="newRecipeBtn_Click" Grid.Row="1" Grid.Column="0"/>
+        <Button x:Name="NewEventBtn" Content="New Event" Margin="5" Click="NewEventBtn_Click" Grid.Row="1" Grid.Column="0"/>
         <Button x:Name="SettingsBtn" Content="Settings" Margin="5" Click="SettingsBtn_Click" Grid.Row="1" Grid.Column="1"/>
 
     </Grid>

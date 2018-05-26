@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QTickWPF.ViewModels;
+using QTickWPF.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,22 @@ namespace QTickWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Variables to use
+        private MainWindowVM _vm;
+
+        //Main function that starts the MainWindowVM and loginform into its place
         public MainWindow()
         {
             InitializeComponent();
-        }
+            this._vm = new MainWindowVM();
+            this.DataContext = _vm;
+
+            userFrame.Content = new LoginForm(_vm, userFrame, overFrame);
+
+        //    if (_vm.User != null)
+        //    {
+        //        User.Visibility = Visibility.Visible;
+        //    }
+        //}
     }
 }
