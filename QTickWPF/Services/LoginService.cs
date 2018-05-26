@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace QTickWPF.Services
 {
-    public class LoginService : BaseService<LoginDTO,TokenDTO>
+    public class LoginService : BaseService
     {
         public async Task<string> GetToken(string user, string pass)
         {
             var login = new LoginDTO { Email = user, Password = pass };
-            return (await PostAsync("Security/GetToken",login)).Token;
+            return (await PostAsync<LoginDTO,TokenDTO>("Security/GetToken",login)).Token;
         }
     }
 }
