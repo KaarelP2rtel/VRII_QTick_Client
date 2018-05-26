@@ -8,10 +8,10 @@
         Title="QTick" Height="700" Width="900" MinHeight="300" MinWidth="600" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="5,5,5,5">
+        <Grid Grid.Row="0" >
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"></ColumnDefinition>                 
                 <ColumnDefinition Width="250"></ColumnDefinition>
@@ -32,7 +32,7 @@
             </Grid>         
            
         </Grid>
-        <Grid Grid.Row="1" Margin="5,5,5,5">
+        <Grid Grid.Row="1">
         </Grid>
         <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
 

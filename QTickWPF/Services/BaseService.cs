@@ -37,7 +37,8 @@ namespace QTickWPF.Services
             
             var response = await _client.PostAsJsonAsync(
                url, obj);
-            //response.EnsureSuccessStatusCode();
+
+            response.EnsureSuccessStatusCode();
 
             return await response.Content.ReadAsAsync<TResponse>();
         }
@@ -48,7 +49,7 @@ namespace QTickWPF.Services
             var response = await _client.PostAsJsonAsync(
                url, obj);
             response.EnsureSuccessStatusCode();
-
+            
             return await response.Content.ReadAsAsync<TResponse>();
         }
     }

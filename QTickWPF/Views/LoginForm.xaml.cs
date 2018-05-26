@@ -30,13 +30,15 @@ namespace QTickWPF.Views
         {
             InitializeComponent();
             _vm = vm;
+            DataContext = vm;
+            
    
         }
 
         //When register button is pressed, it tries to register user
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
-   
+            _vm.TryRegister();
         }
 
         //When login button is pressed, it tries to login user
@@ -62,5 +64,7 @@ namespace QTickWPF.Views
                 RegisterBtn_Click(sender, e);
             }
         }
+
+    
     }
 }
