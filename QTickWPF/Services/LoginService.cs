@@ -1,4 +1,5 @@
 ﻿using QTickWPF.Models;
+using QTickWPF.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace QTickWPF.Services
         {
             var login = new LoginDTO { Email = user, Password = pass };
             return (await PostAsync<LoginDTO,TokenDTO>("Security/GetToken",login)).Token;
+        }
+        public async Task<ApplicationUser> RegisterAsync(RegisterDTO registerDTO)
+        {
+
+            return await PostAsync<RegisterDTO, ApplicationUser>("User/Register", registerDTO);
         }
     }
 }

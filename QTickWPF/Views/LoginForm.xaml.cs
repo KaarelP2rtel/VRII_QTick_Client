@@ -24,9 +24,9 @@ namespace QTickWPF.Views
         //Variables to use
 
 
-        MainWindowVM _vm;
+        LoginFormVM _vm;
         //Constructor for LoginForm
-        public LoginForm(MainWindowVM vm)
+        public LoginForm(LoginFormVM vm)
         {
             InitializeComponent();
             _vm = vm;
