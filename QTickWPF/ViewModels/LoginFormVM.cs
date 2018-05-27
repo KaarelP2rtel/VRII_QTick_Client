@@ -62,14 +62,14 @@ namespace QTickWPF.ViewModels
 
 
         private readonly LoginService _loginService;
-        private readonly MainWindowVM _mainWindowVM; 
+        private readonly MainWindowVM _mainWindowVM;
 
         public LoginFormVM(MainWindowVM mainWindowVM)
         {
             _mainWindowVM = mainWindowVM;
 
             _loginService = new LoginService();
-            
+
         }
         public async void TryLogin()
         {
@@ -79,13 +79,14 @@ namespace QTickWPF.ViewModels
         }
         public void TryRegister()
         {
-            var newUser = _loginService.RegisterAsync(new RegisterDTO
-            {
-                Name = RegisterNameInput,
-                UserName = LoginUserInput,
-                Password = LoginPasswordInput,
-                PasswordAgain = LoginPasswordAgainInput
-            });
+            var newUser = _loginService.RegisterAsync(
+                new RegisterDTO
+                {
+                    Name = RegisterNameInput,
+                    UserName = LoginUserInput,
+                    Password = LoginPasswordInput,
+                    PasswordAgain = LoginPasswordAgainInput
+                });
             if (newUser != null)
             {
                 TryLogin();

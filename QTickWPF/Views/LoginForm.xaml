@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QTickWPF.Views"
         mc:Ignorable="d"
-        d:DesignHeight="150" d:DesignWidth="300"
+        d:DesignHeight="180" d:DesignWidth="300"
         Title="LoginForm">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,10 +26,10 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Username" />
-                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp" />
+                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Email" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2"  />
                     <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2" Text="Password"/>
-                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" />
                     <Button Grid.Column="0" Grid.Row="2" x:Name="LoginBtn" Content="Login" Margin="5,2" Click="LoginBtn_Click" Grid.ColumnSpan="2"/>
                     <TextBlock Grid.Column="0" Grid.Row="3" x:Name="LoginError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="2"/>
                 </Grid>
@@ -37,9 +37,7 @@
             <TabItem Header="Register">
                 <Grid Background="AliceBlue">
                     <Grid.ColumnDefinitions>
-                        
-                      
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -48,19 +46,25 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Username" Grid.ColumnSpan="3" />
-                    <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2" KeyUp="checkRegisterEnter_KeyUp"  />
+                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Email" Grid.ColumnSpan="2" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2"   />
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2" Text="Name" Grid.ColumnSpan="2" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding RegisterNameInput}" Margin="5,2"   />
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" Margin="5,2"  Text="Password" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding LoginPasswordInput}" Margin="5,2" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" Margin="5,2"  Text="PasswordAgain" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding LoginPasswordAgainInput}"  Margin="5,2"/>
                     
-                    <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2"  Text="Password" Grid.ColumnSpan="3"/>
-                    <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" KeyUp="checkRegisterEnter_KeyUp"/>
-                    
-                    <TextBlock Grid.Column="0" Grid.Row="2" Margin="5,2"  Text="PasswordAgain" Grid.ColumnSpan="3"/>
-                    <TextBlock Grid.Column="3" Grid.Row="2" Text="{Binding LoginPasswordAgainInput}"  Margin="5,2" KeyUp="checkRegisterEnter_KeyUp"/>
-                    
-                    <Button Grid.Column="0" Grid.Row="3" x:Name="RegisterBtn" Content="Register" Margin="5,2" Click="RegisterBtn_Click" Grid.ColumnSpan="4"/>
-                    <TextBlock Grid.Column="0" Grid.Row="3" x:Name="RegisterError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4"/>
+                   
+
+                    <Button Grid.Column="0" Grid.Row="5" x:Name="RegisterBtn" Content="Register" Margin="5,2" Click="RegisterBtn_Click" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" x:Name="RegisterError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

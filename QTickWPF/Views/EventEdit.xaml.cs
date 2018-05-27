@@ -38,5 +38,20 @@ namespace QTickWPF.Views
         {
 
         }
+
+        private void deleteCatBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void categorySelect_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
     }
 }
