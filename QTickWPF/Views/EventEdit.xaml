@@ -17,11 +17,10 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" x:Name="backBtn" Content="Back" Width="75" Margin="3" Click="backBtn_Click"/>
-                <Button Grid.Column="2" x:Name="editBtn" Content="Edit" Width="75" Margin="3" Click="editBtn_Click" Visibility="Hidden" />
-                <Button Grid.Column="3" x:Name="delBtn" Content="Delete" Width="75" Margin="3" Click="delBtn_Click" Visibility="Hidden" />
+                <Button Grid.Row="0" Grid.Column="0" x:Name="backBtn" Content="Back" Width="75" Margin="3" Click="backBtn_Click"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="saveError" Text="" HorizontalAlignment="Right" Margin="10, 5, 85, 5" FontSize="16" Foreground="#E64320"/>
+                <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Width="75" x:Name="saveBtn" Content="Save" Margin="3" Click="saveBtn_Click"/>
             </Grid>
             <Grid Grid.Row="1" Margin="5,5,5,5">
                 <Grid.ColumnDefinitions>
@@ -30,7 +29,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Row="1" Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
@@ -40,39 +39,93 @@
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*" MaxWidth="300"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <TextBlock  Text="wo Event Name" Margin="3" Padding="3" FontWeight="Bold" FontSize="18" />
-                        </Grid>
-                        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="3">
-                            <TextBlock Text="Added Date" Margin="3" Padding="3" FontWeight="Bold" FontSize="14"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*" MaxWidth="300"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <TextBlock  Text="Event Category" Margin="3" Padding="3" FontSize="13" />
-                        </Grid>
-                        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="3">
-                            <TextBlock Text="Some info" Margin="3"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="Bold" FontSize="14" Text="Description" Margin="3"/>
-                        <TextBlock Grid.Row="1" Margin="3,0,3,6" Text="Add description text" TextWrapping="Wrap"/>
-                    </Grid>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="75"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="EventTitle" TextWrapping="Wrap" Text="New Event Binidinguga ja tühi placeholder" Margin="10, 5" FontWeight="Bold" FontSize="14" />
+
+                    <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="EventName" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks EventName" Margin="3" Padding="3"/>
+                    
+                    <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="TypeName" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks EventTypename" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Duration" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks Duration" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Description" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks Description" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="5" TextWrapping="Wrap" Text="ImageLink" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks ImageLink" Margin="3" Padding="3"/>
+                    
+                    <TextBlock Grid.Row="6" TextWrapping="Wrap" Text="Performers" Margin="3" Padding="3"/>
+                    <ComboBox Grid.Row="6" Grid.Column="1" Margin="3" Padding="3" ItemsSource="{ Binding }" DropDownClosed="categorySelect_DropDownClosed" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Bindinguks Performerite listi esitlus"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ListView x:Name="categoryList" Grid.Row="7" Grid.Column="1" Margin="3" ItemsSource="{Binding }" HorizontalContentAlignment="Stretch">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="36"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Margin="3" Text="{Binding }"></TextBlock>
+                                    <Button Grid.Column="1" Margin="3" Name="deleteCatBtn" Click="deleteCatBtn_Click">X</Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.Style>
+                            <Style TargetType="ListView">
+                                <Style.Triggers>
+                                    <Trigger Property="HasItems" Value="False">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListView">
+                                                    <TextBlock Text="No performers selected"/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.Style>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Focusable" Value="False"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                    <TextBlock Grid.Row="9" TextWrapping="Wrap" Text="PerformerName" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="9" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks PerformerName" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="10" TextWrapping="Wrap" Text="PerformerTypeName" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="10" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks PerformerTypeName" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="11" TextWrapping="Wrap" Text="PerformerDescription" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="11" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks PerformerDescription" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="12" TextWrapping="Wrap" Text="PerformerPage" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="12" Grid.Column="1" TextWrapping="Wrap" Text="PerformerPage" Margin="3" Padding="3"/>                    
+                    
+                    <TextBlock Grid.Row="14" TextWrapping="Wrap" Text="Performer's List" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="14" Grid.Column="1" TextWrapping="Wrap" Text="Siia tuleb üks tore listbox, mis on jube keeruline ComboBox.  / Lisada ka kustutamise nupp jne" Margin="3" Padding="3"/>
 
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="1" >
@@ -87,19 +140,43 @@
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*" MaxWidth="200"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <TextBlock  Text="Tciket info" Margin="3" Padding="3" FontWeight="Bold" FontSize="18" />
-                        </Grid>
-                        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="3">
-                            <TextBlock Text="Added Date" Margin="3" Padding="3" FontWeight="Bold" FontSize="14"/>
-                        </Grid>
-                    </Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="75"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="Created" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Binding date ABst" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="" Margin="200,0,0,0" Padding="3"/>
+                    
+                    <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Performances" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks kuvab listina by Date+location" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="TicketInfo" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks TicketInfo suurem väli" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="5" TextWrapping="Wrap" Text="LocationName" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks LocationName" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="6" TextWrapping="Wrap" Text="LocationAddress" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks Address" Margin="3" Padding="3"/>
+
+                    <TextBlock Grid.Row="7" TextWrapping="Wrap" Text="LocationContact" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks EventTypename" Margin="3" Padding="3"/>
+                    
+                    <TextBlock Grid.Row="8" TextWrapping="Wrap" Text="TypeName" Margin="3" Padding="3"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks LocationContact" Margin="3" Padding="3"/>
+
+
 
                 </Grid>
             </Grid>
