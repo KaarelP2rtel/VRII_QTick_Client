@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using QTickWPF.Models;
+using QTickWPF.Models.DTO;
 using QTickWPF.Services;
 using QTickWPF.Views;
 
@@ -16,6 +17,7 @@ namespace QTickWPF.ViewModels
 
         private readonly EventsService _eventsService;
         private readonly LoginService _loginService;
+        private readonly RegisterService _registerService;
 
         #region DataBinding Fields
         private List<Event> _events;
@@ -23,6 +25,7 @@ namespace QTickWPF.ViewModels
         private string _loginUserInput;
         private string _loginPasswordInput;
         private Page _userFrameContent;
+
         #endregion
 
         #region DataBinding Props
@@ -39,7 +42,7 @@ namespace QTickWPF.ViewModels
             }
         }
 
-        
+
 
         public string Token
         {
@@ -72,7 +75,7 @@ namespace QTickWPF.ViewModels
             }
         }
 
-        
+
 
         public Page UserFrameContent
         {
@@ -90,28 +93,36 @@ namespace QTickWPF.ViewModels
             _events = new List<Models.Event>();
             _eventsService = new EventsService();
             _loginService = new LoginService();
+            _registerService = new RegisterService();
 
             UserFrameContent = new LoginForm(this);
+            LoadData();
 
         }
 
         public async void TryLogin()
         {
-            Token = await _loginService.GetTokenAsync(LoginUserInput, LoginPasswordInput);   
+            Token = await _loginService.GetTokenAsync(LoginUserInput, LoginPasswordInput);
             UserFrameContent = new LoggedIn(this);
         }
 
-        
+
         public async void LoadData()
         {
-            
 
-            _events.Add(new Models.Event() { EventName = "Kontsert 1" });
+
+            Events = await _eventsService.GetEventsAsync();
         }
-  
+
         internal void TryRegister()
         {
-            throw new NotImplementedException();
+            _registerService.RegisterAsync(new RegisterDTO
+            {
+                Name="UusIsik",
+                UserName=LoginUserInput,
+                Password=LoginPasswordInput,
+                PasswordAgain=LoginPasswordInput
+            });
         }
 
     }

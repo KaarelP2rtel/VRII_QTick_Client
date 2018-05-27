@@ -10,10 +10,10 @@ namespace QTickWPF.Services
 {
     public class RegisterService : BaseService
     {
-        public async Task<ApplicationUser> RegisterAsync(string userName, string name, string password, string passwordAgain)
+        public async Task<ApplicationUser> RegisterAsync(RegisterDTO registerDTO)
         {
-            var register = new RegisterDTO { UserName = userName, Name = name, Password = password, PasswordAgain = passwordAgain };
-            return await PostAsync<RegisterDTO, ApplicationUser>("User/Register", register);
+            
+            return await PostAsync<RegisterDTO, ApplicationUser>("User/Register", registerDTO);
         }
 
     }

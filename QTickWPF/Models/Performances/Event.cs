@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QTickWPF.Models
 {
-    public class Event
+    public class Event 
     {
         public int EventId { get; set; }
         public string EventName { get; set; }
@@ -15,6 +15,11 @@ namespace QTickWPF.Models
         public string EventDuration { get; set; }
         public string EventPage { get; set; }
         public EventType EventType { get; set; }
+
+        public override string ToString()
+        {
+            return $"{EventName} {EventDuration}";
+        }
 
 
     }
