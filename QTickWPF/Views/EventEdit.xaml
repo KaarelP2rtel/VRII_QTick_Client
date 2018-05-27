@@ -70,14 +70,14 @@
                     <TextBox Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks ImageLink" Margin="3" Padding="3"/>
                     
                     <TextBlock Grid.Row="6" TextWrapping="Wrap" Text="Performers" Margin="3" Padding="3"/>
-                    <ComboBox Grid.Row="6" Grid.Column="1" Margin="3" Padding="3" ItemsSource="{ Binding }" DropDownClosed="categorySelect_DropDownClosed" >
+                    <ComboBox Grid.Row="6" Grid.Column="1" Margin="3" Padding="3" Text="ItemsSource={ Binding }" DropDownClosed="categorySelect_DropDownClosed" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Bindinguks Performerite listi esitlus"></TextBlock>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <ListView x:Name="categoryList" Grid.Row="7" Grid.Column="1" Margin="3" ItemsSource="{Binding }" HorizontalContentAlignment="Stretch">
+                    <ListView x:Name="categoryList" Grid.Row="7" Grid.Column="1" Margin="3"  HorizontalContentAlignment="Stretch">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -85,7 +85,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="36"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Margin="3" Text="{Binding }"></TextBlock>
+                                    <TextBlock Grid.Column="0" Margin="3" Text="bindinguks"></TextBlock>
                                     <Button Grid.Column="1" Margin="3" Name="deleteCatBtn" Click="deleteCatBtn_Click">X</Button>
                                 </Grid>
                             </DataTemplate>
@@ -97,7 +97,7 @@
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="ListView">
-                                                    <TextBlock Text="No performers selected"/>
+                                                    <TextBlock Text="No performers selected Style TargetType vaata üle"/>
                                                 </ControlTemplate>
                                             </Setter.Value>
                                         </Setter>
@@ -106,7 +106,7 @@
                             </Style>
                         </ListView.Style>
                         <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
+                            <Style TargetType="List">
                                 <Setter Property="Focusable" Value="False"/>
                             </Style>
                         </ListView.ItemContainerStyle>

@@ -34,6 +34,10 @@
         </Grid>
         <Grid Grid.Row="1">
         </Grid>
+
+        <TextBlock Grid.Row="1" Text="Search" HorizontalAlignment="Left" Height="30" Margin="25,50,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Row="1" Text="Binding Search" HorizontalAlignment="Left" Height="30" Margin="100,50,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
+
         <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
 
         <ListBox Grid.Row="1" ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="200" Margin="100,200,0,0" VerticalAlignment="Top" Width="498"/>
