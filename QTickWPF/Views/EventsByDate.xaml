@@ -1,0 +1,29 @@
+﻿<Page x:Class="QTickWPF.Views.EventsByDate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QTickWPF.Views"
+        mc:Ignorable="d"
+        Title="EventsByDate" Height="550" Width="900">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Background="White">
+
+            <TextBlock Text="SearchBox" HorizontalAlignment="Left" Height="30" Margin="25,25,0,0" Padding="3" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="14" ></TextBlock>
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="500" Text="Binding Search: võtab siis ssisetsatud sõna otsingusse ja otsib AB kõikidelt väljadelt" Margin="150,25,0,0" Padding="3"/>
+
+            <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="25,75,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
+            
+            <TextBlock Text="Events by Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,100,0,0" Padding="3" Height="30" FontWeight="Bold" FontSize="14" TextWrapping="Wrap"/>
+            <ListBox ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="400" Width="500" Margin="150,100,0,0" VerticalAlignment="Top">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="Binding, mille alusel, nt date name location"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Grid.Row="1" Text="Siia kuvab Events by Date+ otsingu, kustutada hiljem" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="500" Margin="150,100,0,0" Padding="3" FontSize="14" ></TextBlock>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

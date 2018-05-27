@@ -35,15 +35,11 @@
         <Grid Grid.Row="1">
         </Grid>
 
-        <TextBlock Grid.Row="1" Text="Search" HorizontalAlignment="Left" Height="30" Margin="25,50,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16" ></TextBlock>
-        <TextBlock Grid.Row="1" Text="Binding Search" HorizontalAlignment="Left" Height="30" Margin="100,50,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
-
+        <TextBlock Grid.Row="1" Text="Search" HorizontalAlignment="Left" Height="30" Margin="25,50,0,0" Padding="3" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="14" ></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="Binding Search: võtab siis ssisetsatud sõna otsingusse ja otsib AB kõikidelt väljadelt" Margin="100,50,0,0" Padding="3"/>
+        
         <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="200" Margin="100,200,0,0" VerticalAlignment="Top" Width="498"/>
-                
-        <Frame x:Name="overFrame"  Grid.Column="1" Margin="5" Visibility="Hidden" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
-
-
+        
     </Grid>
 </Window>

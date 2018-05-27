@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace QTickWPF.Views
 {
     /// <summary>
-    /// Interaction logic for ApplicationUserView.xaml
+    /// Interaction logic for EventsByDate.xaml
     /// </summary>
-    public partial class ApplicationUserView : Page
+    public partial class EventsByDate : Page
     {
-        public ApplicationUserView()
+        public EventsByDate()
         {
             InitializeComponent();
         }
