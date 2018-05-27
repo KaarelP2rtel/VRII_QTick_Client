@@ -47,23 +47,7 @@ namespace QTickWPF.Views
             _vm.TryLogin(); 
         }
 
-        //Triggers login button when pressed enter in login fields
-        private void checkLoginEnter_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                LoginBtn_Click(sender, e);
-            }
-        }
-
-        //Triggers register button when pressed enter in registering fields
-        private void checkRegisterEnter_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                RegisterBtn_Click(sender, e);
-            }
-        }
+      
 
     
     }

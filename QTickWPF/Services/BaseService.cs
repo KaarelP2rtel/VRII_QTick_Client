@@ -29,6 +29,7 @@ namespace QTickWPF.Services
         {
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var resp = await _client.GetAsync(url);
+
             return await resp.Content.ReadAsAsync<TResponse>();
         }
 
