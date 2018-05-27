@@ -27,9 +27,9 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Username" />
-                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp" />
                     <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2" Text="Password"/>
-                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" KeyUp="checkLoginEnter_KeyUp"/>
                     <Button Grid.Column="0" Grid.Row="2" x:Name="LoginBtn" Content="Login" Margin="5,2" Click="LoginBtn_Click" Grid.ColumnSpan="2"/>
                     <TextBlock Grid.Column="0" Grid.Row="3" x:Name="LoginError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="2"/>
                 </Grid>
@@ -51,16 +51,16 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,2" Text="Username" Grid.ColumnSpan="3" />
-                    <TextBox Grid.Column="3" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2"   />
+                    <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding LoginUserInput}" Margin="5,2" KeyUp="checkRegisterEnter_KeyUp"  />
                     
                     <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,2"  Text="Password" Grid.ColumnSpan="3"/>
-                    <TextBox Grid.Column="3" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" />
+                    <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding LoginPasswordInput}" Margin="5,2" KeyUp="checkRegisterEnter_KeyUp"/>
                     
                     <TextBlock Grid.Column="0" Grid.Row="2" Margin="5,2"  Text="PasswordAgain" Grid.ColumnSpan="3"/>
-                    <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding LoginPasswordAgainInput}"  Margin="5,2" />
+                    <TextBlock Grid.Column="3" Grid.Row="2" Text="{Binding LoginPasswordAgainInput}"  Margin="5,2" KeyUp="checkRegisterEnter_KeyUp"/>
                     
-                    <Button Grid.Column="0" Grid.Row="3"  Content="Register" Margin="5,2" Click="RegisterBtn_Click" Grid.ColumnSpan="4"/>
-                    <TextBlock Grid.Column="0" Grid.Row="4"  Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4"/>
+                    <Button Grid.Column="0" Grid.Row="3" x:Name="RegisterBtn" Content="Register" Margin="5,2" Click="RegisterBtn_Click" Grid.ColumnSpan="4"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" x:Name="RegisterError" Margin="5,2" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4"/>
                 </Grid>
             </TabItem>
         </TabControl>
