@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <TabControl  Margin="0,-27,0,0" Grid.ColumnSpan="2">
             <TabItem Header="Log In">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -35,7 +35,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Register">
-                <Grid Background="AliceBlue">
+                <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="2*"/>
