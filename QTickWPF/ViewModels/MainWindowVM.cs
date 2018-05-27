@@ -15,20 +15,9 @@ namespace QTickWPF.ViewModels
     public class MainWindowVM : BaseVM
     {
 
-        private readonly EventsService _eventsService;
-        private readonly LoginService _loginService;
-        private readonly RegisterService _registerService;
-
-        #region DataBinding Fields
+        #region DataBinding
         private List<Event> _events;
-        private string _token;
-        private string _loginUserInput;
-        private string _loginPasswordInput;
-        private Page _userFrameContent;
-
-        #endregion
-
-        #region DataBinding Props
+    
         public List<Event> Events
         {
             get
@@ -42,8 +31,18 @@ namespace QTickWPF.ViewModels
             }
         }
 
+        private Page _userFrameContent;
+        public Page UserFrameContent
+        {
+            get => _userFrameContent;
+            private set
+            {
+                _userFrameContent = value;
+                NotifyPropertyChanged(nameof(UserFrameContent));
+            }
+        }
 
-
+        private string _token;
         public string Token
         {
             get
@@ -53,77 +52,41 @@ namespace QTickWPF.ViewModels
             private set
             {
                 _token = value;
-                NotifyPropertyChanged("Token");
-            }
-        }
-        public string LoginUserInput
-        {
-            get => _loginUserInput;
-            set
-            {
-                _loginUserInput = value;
-                NotifyPropertyChanged("LoginUserInput");
-            }
-        }
-        public string LoginPasswordInput
-        {
-            get => _loginPasswordInput;
-            set
-            {
-                _loginPasswordInput = value;
-                NotifyPropertyChanged("LoginPasswordInput");
-            }
-        }
-
-
-
-        public Page UserFrameContent
-        {
-            get => _userFrameContent;
-            private set
-            {
-                _userFrameContent = value;
-                NotifyPropertyChanged("UserFrameContent");
+                NotifyPropertyChanged(nameof(Token));
             }
         }
         #endregion
 
+        private LoginFormVM _loginFormVM;
+
+        private readonly EventsService _eventsService;
+
+
         public MainWindowVM()
         {
-            _events = new List<Models.Event>();
             _eventsService = new EventsService();
-            _loginService = new LoginService();
-            _registerService = new RegisterService();
 
-            UserFrameContent = new LoginForm(this);
+            _loginFormVM = new LoginFormVM(this);
+
+            UserFrameContent = new LoginForm(_loginFormVM);
+
             LoadData();
 
         }
 
-        public async void TryLogin()
-        {
-            Token = await _loginService.GetTokenAsync(LoginUserInput, LoginPasswordInput);
-            UserFrameContent = new LoggedIn(this);
-        }
 
 
         public async void LoadData()
         {
 
-
             Events = await _eventsService.GetEventsAsync();
         }
 
-        internal void TryRegister()
+        internal void UserLoggedIn(string token)
         {
-            _registerService.RegisterAsync(new RegisterDTO
-            {
-                Name="UusIsik",
-                UserName=LoginUserInput,
-                Password=LoginPasswordInput,
-                PasswordAgain=LoginPasswordInput
-            });
+            Token = token;
+            UserFrameContent = null;
+            _loginFormVM = null;
         }
-
     }
 }
