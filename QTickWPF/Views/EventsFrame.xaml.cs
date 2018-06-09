@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QTickWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,23 @@ using System.Windows.Shapes;
 namespace QTickWPF.Views
 {
     /// <summary>
-    /// Interaction logic for EventsByDate.xaml
+    /// Interaction logic for EventsFrame.xaml
     /// </summary>
-    public partial class EventsByDate : Page
+    public partial class EventsFrame : Page
     {
-        public EventsByDate()
+        private EventsFrameVM _vm;
+        public EventsFrame(EventsFrameVM vm)
         {
+            _vm = vm;
+            DataContext = _vm;
             InitializeComponent();
+
+            
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _vm.ItemSelected();
         }
     }
 }

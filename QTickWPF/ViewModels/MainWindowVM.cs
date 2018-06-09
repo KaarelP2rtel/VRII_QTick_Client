@@ -17,7 +17,7 @@ namespace QTickWPF.ViewModels
 
         #region DataBinding
         private List<Event> _events;
-    
+
         public List<Event> Events
         {
             get
@@ -42,17 +42,19 @@ namespace QTickWPF.ViewModels
             }
         }
 
-        //private Page _eventsListFrameContent;
+        private Page _eventsListFrameContent;
 
-        //public Page EventsListFrameContent
-        //{
-        //    get => _eventsListFrameContent;
-        //    private set
-        //    {
-        //        _eventsListFrameContent = value;
-        //        NotifyPropertyChanged(nameof(EventsListFrameContent));
-        //    }
-        //}
+        public Page EventsListFrameContent
+        {
+            get => _eventsListFrameContent;
+            private set
+            {
+                _eventsListFrameContent = value;
+                NotifyPropertyChanged(nameof(EventsListFrameContent));
+            }
+        }
+
+
 
         private string _token;
         public string Token
@@ -68,11 +70,12 @@ namespace QTickWPF.ViewModels
             }
         }
 
-      
+
         #endregion
 
         private LoginFormVM _loginFormVM;
-
+        private EventsFrameVM _eventsFrameVM;
+        private EventViewVM _eventViewVM;
         private readonly EventsService _eventsService;
 
 
@@ -81,14 +84,21 @@ namespace QTickWPF.ViewModels
             _eventsService = new EventsService();
 
             _loginFormVM = new LoginFormVM(this);
+            _eventsFrameVM = new EventsFrameVM(this);
 
             UserFrameContent = new LoginForm(_loginFormVM);
+            EventsListFrameContent = new EventsFrame(_eventsFrameVM);
 
             LoadData();
 
         }
 
-
+        public void EventSelected(Event selectedEvent)
+        {
+            _eventViewVM = new EventViewVM(this);
+            EventsListFrameContent = new EventView(_eventViewVM);
+            _eventViewVM.Event = selectedEvent;
+        }
 
         public async void LoadData()
         {

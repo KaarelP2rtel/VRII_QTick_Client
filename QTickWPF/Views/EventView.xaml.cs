@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QTickWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace QTickWPF.Views
     /// </summary>
     public partial class EventView : Page
     {
-        public EventView()
+        private EventViewVM _vm;
+        public EventView(EventViewVM eventViewVM)
         {
+            _vm = eventViewVM;
+            DataContext = _vm;
             InitializeComponent();
         }
 
