@@ -12,10 +12,10 @@
             <TextBlock Text="SearchBox" HorizontalAlignment="Left" Height="30" Margin="25,25,0,0" Padding="3" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="14" ></TextBlock>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="500" Text="Binding Search: võtab siis sisestatud sõna otsingusse ja otsib AB kõikidelt väljadelt" Margin="150,25,0,0" Padding="3"/>
 
-            <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="25,75,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
+            <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="25,50,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
             
-            <TextBlock Text="Events by Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,100,0,0" Padding="3" Height="30" FontWeight="Bold" FontSize="14" TextWrapping="Wrap"/>
-            <ListBox ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="400" Width="500" Margin="150,100,0,0" VerticalAlignment="Top" SelectionChanged="ListBox_SelectionChanged" SelectedItem="{Binding SelectedEvent}">
+            <TextBlock Text="ListEvents" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,80,0,0" Padding="3" Height="30" FontWeight="Bold" FontSize="14" TextWrapping="Wrap"/>
+            <ListBox ItemsSource="{Binding Events}" HorizontalAlignment="Left" Height="350" Width="500" Margin="150,80,0,0" VerticalAlignment="Top" SelectionChanged="ListBox_SelectionChanged" SelectedItem="{Binding SelectedEvent}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" >
