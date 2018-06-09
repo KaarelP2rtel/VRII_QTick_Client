@@ -55,19 +55,19 @@
                     <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  TextWrapping="Wrap" Text="{Binding Event.EventName}" Margin="10, 5" FontWeight="Bold" FontSize="14" />
 
                     <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="EventName" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks EventName" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Event.EventName}" Margin="3" Padding="3"/>
 
                     <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="TypeName" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks EventTypename" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Event.EventType.EventTypeName}" Margin="3" Padding="3"/>
 
                     <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Duration" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks Duration" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Event.EventDuration}" Margin="3" Padding="3"/>
 
                     <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Description" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks Description" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Event.EventDescription}" Margin="3" Padding="3"/>
 
                     <TextBlock Grid.Row="5" TextWrapping="Wrap" Text="ImageLink" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks ImageLink" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Event.ImageLink}" Margin="3" Padding="3"/>
 
                     <TextBlock Grid.Row="14" TextWrapping="Wrap" Text="Performer/s" Margin="3" Padding="3"/>
                     <TextBlock Grid.Row="14" Grid.Column="1" TextWrapping="Wrap" Text="Siia tuleb üks tore listbox, mis on jube keeruline ComboBox.  / Lisada ka kustutamise nupp jne" Margin="3" Padding="3"/>
@@ -116,10 +116,10 @@
                     <TextBlock Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks Address" Margin="3" Padding="3"/>
 
                     <TextBlock Grid.Row="7" TextWrapping="Wrap" Text="LocationContact" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks EventTypename" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks LocationContact" Margin="3" Padding="3"/>
 
-                    <TextBlock Grid.Row="8" TextWrapping="Wrap" Text="TypeName" Margin="3" Padding="3"/>
-                    <TextBlock Grid.Row="8" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks LocationContact" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="8" TextWrapping="Wrap" Text="LocationType" Margin="3" Padding="3"/>
+                    <TextBlock Grid.Row="8" Grid.Column="1" TextWrapping="Wrap" Text="Bindinguks LocationTypeName" Margin="3" Padding="3"/>
 
 
 
