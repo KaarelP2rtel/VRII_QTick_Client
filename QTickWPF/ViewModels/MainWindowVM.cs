@@ -42,6 +42,18 @@ namespace QTickWPF.ViewModels
             }
         }
 
+        //private Page _eventsListFrameContent;
+
+        //public Page EventsListFrameContent
+        //{
+        //    get => _eventsListFrameContent;
+        //    private set
+        //    {
+        //        _eventsListFrameContent = value;
+        //        NotifyPropertyChanged(nameof(EventsListFrameContent));
+        //    }
+        //}
+
         private string _token;
         public string Token
         {
@@ -55,6 +67,8 @@ namespace QTickWPF.ViewModels
                 NotifyPropertyChanged(nameof(Token));
             }
         }
+
+      
         #endregion
 
         private LoginFormVM _loginFormVM;

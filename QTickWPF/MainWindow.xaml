@@ -32,9 +32,11 @@
             </Grid>         
            
         </Grid>
-        
-        <TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>
+        <Frame Grid.Row="1" x:Name="eventsListFrame" Content="{Binding EventsListFrameContent}" Height="450" />
 
+        <!--<TextBlock Grid.Row="1" Text="{Binding Token}" HorizontalAlignment="Left" Height="30" Margin="100,100,0,0" VerticalAlignment="Top" Width="100"></TextBlock>-->
+
+        
         
     </Grid>
 </Window>
